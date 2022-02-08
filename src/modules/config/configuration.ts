@@ -7,9 +7,13 @@ export const validationSchema = Joi.object({
     .default('dev')
     .required(),
 
-  DB_HOST: Joi.string().required(),
-  DB_PORT: Joi.number().port().default(26017).required(),
+  DB_HOST: Joi.string().default('localhost'),
+  DB_PORT: Joi.number().port().default(27017),
   DB_NAME: Joi.string().required(),
-  DB_USERNAME: Joi.string().required(),
-  DB_PASSWORD: Joi.string().required(),
+  DB_USERNAME: Joi.string(),
+  DB_PASSWORD: Joi.string(),
+
+  DB_REPLICA_SET: Joi.string(),
+  DB_AUTH_SOURCE: Joi.string(),
+  DB_SSL: Joi.string().default('false'),
 });
